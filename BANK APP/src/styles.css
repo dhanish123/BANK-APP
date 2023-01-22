@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+/* background-image: url('https://i.postimg.cc/MK1Jwfyn/images.jpg'); */
+background-color: rgb(250, 241, 241);
+}
+input{
+    border: none;
+    border-radius: 8px;
+    width: 60rem;
+    margin-left: auto; 
+    margin-right: auto;
+    padding: 6px;
+}
+
+.wrapper {
+    background-color: #ddd4bd;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    padding: 30px;
+  
+}
+.child{
+    display: inline-block;
+    padding: 100px;
+    margin-top: -100px;
+    margin-left: -10px;
+}
+.parent{
+display: flex;
+
+}
+
+.logo{
+    width:200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+img {
+    width: 100%;
+}
+@import '~mdb-angular-ui-kit/assets/scss/mdb.scss';

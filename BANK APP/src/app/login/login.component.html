@@ -1,0 +1,25 @@
+<div class="wrapper text-center">
+    <div class="logo">
+        <img src="../assets/images/canara logo.png" alt="">
+    </div>
+    <div class="text-center mt-4 fs-6 fw-bold name">
+        CANARA BANK
+    </div>
+    <!-- <h3>{{aim}}</h3> -->
+    <form [formGroup]="loginForm" action="" class="text-center p-3 mt-3 " >
+        <div class="form-field d-flex align-content-center m-3">
+            <input formControlName="acno"    style="margin-left: auto; margin-right: auto;" type="number" name="acno" id="login_acno" [placeholder]="accounts">
+        </div>
+        <div *ngIf="this.loginForm.get('acno')?.errors&&this.loginForm.get('acno')?.touched" style="color:red;">Invalid account number</div>
+
+        <div class="form-field d-flex align-items-center m-3">
+            <input style="margin-left: auto; margin-right: auto;" formControlName="pswd" type="password" name="pswd" id="login_pswd" placeholder="Password">
+        </div>
+        <div *ngIf="this.loginForm.get('pswd')?.errors&&this.loginForm.get('pswd')?.touched" style="color:red;">Invalid password</div>
+
+        <button class="btn btn-primary mt-3" (click)="login()" type="button">Login</button>
+    </form>
+    <div class="text-center m-3">
+        <a href="#">Forgot Password?</a> or <a routerLink="register">Sign up</a>  
+    </div>
+</div>      

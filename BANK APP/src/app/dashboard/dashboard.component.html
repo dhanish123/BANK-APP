@@ -1,0 +1,86 @@
+
+
+
+
+
+ <div class="heading">
+    <button class="btn btn-success logout" (click)="logout()">logout</button>
+    <button class="btn btn-danger delete" (click)="delete()">Delete</button>
+    <h1>Canara Bank</h1>
+    </div>
+    <h3 >Welcome {{user}}</h3>
+    
+    <!-- indian standard time and date-->
+    <!-- <h4>System Date and Time: {{SystemDate}}</h4> -->
+    <!-- System Date only -->
+    <!-- <h4>System Date and Time: {{SystemDate | date}}</h4>  -->
+    <!-- Date & Time with / -->
+    <h4>System Date and Time: {{SystemDate | date:'short'}}</h4>
+    
+    <app-delete [item]="acno" (onCancel)="onCancel()" (onDelete)="onDelete($event)"></app-delete>
+    
+    <div class="main-div" [ngClass]="acno? 'style1':'' "> <!-- if there is not acno, work style1(css prpty) -->
+    <div class="wrapper text-center deposit">
+        <div class="logo">
+            <img src="../../assets/image/bank.png" alt="">
+        </div>
+        <div class="text-center mt-4 fs-6 fw-bold name">
+            DEPOSIT
+        </div>
+        <form [formGroup]="depositForm" action="" class="text-center p-3 mt-3 ">
+            <div class="form-field d-flex align-content-center m-3">
+                <input formControlName="amount" style="margin-left: auto; margin-right: auto;" type="number" name="amount" id="amount" placeholder="amount">
+            </div>
+            <div *ngIf="this.depositForm.get('amount')?.errors&&this.depositForm.get('amount')?.touched" style="color: red;">Please enter amount</div>
+    
+            <div class="form-field d-flex align-content-center m-3">
+                <input formControlName="acno" style="margin-left: auto; margin-right: auto;" type="number" name="acno" id="login_acno" placeholder="accounts">
+            </div>
+            <div *ngIf="this.depositForm.get('acno')?.errors&&this.depositForm.get('acno')?.touched" style="color: red;">Invalid account number</div>
+    
+            <div class="form-field d-flex align-items-center m-3">
+                <input formControlName="pswd" style="margin-left: auto; margin-right: auto;" type="password" name="password" id="login_pswd" placeholder="Password">
+            </div>
+            <div *ngIf="this.depositForm.get('pswd')?.errors&&this.depositForm.get('pswd')?.touched" style="color: red;">Invalid Password</div>
+    
+            <button class="btn btn-primary mt-3" (click)="deposit()" type="button">Deposit</button>
+        </form>
+        <div class="text-center m-3">
+            <a href="#">Forgot Password?</a> or <a routerLink="">Login</a>
+        </div>
+    </div>
+    
+    <div class="wrapper text-center withdraw">
+        <div class="logo">
+            <img src="../../assets/image/bank.png" alt="">
+        </div>
+        <div class="text-center mt-4 fs-6 fw-bold name">
+            WITHDRAW
+        </div>
+        <form [formGroup]="withdrawForm" action="" class="text-center p-3 mt-3 ">
+            <div class="form-field d-flex align-content-center m-3">
+                <input formControlName="amount1" style="margin-left: auto; margin-right: auto;" type="number" name="amount" id="amount" placeholder="amount">
+            </div>
+            <div *ngIf="this.withdrawForm.get('amount1')?.errors&&this.withdrawForm.get('amount1')?.touched" style="color: red;">Please enter amount</div>
+    
+            <div class="form-field d-flex align-content-center m-3">
+                <input formControlName="acno1" style="margin-left: auto; margin-right: auto;" type="number" name="acno" id="login_acno" placeholder="accounts">
+            </div>
+            <div *ngIf="this.withdrawForm.get('acno1')?.errors&&this.withdrawForm.get('acno1')?.touched" style="color: red;">Invalid account number</div>
+    
+            <div class="form-field d-flex align-items-center m-3">
+                <input formControlName="pswd1" style="margin-left: auto; margin-right: auto;" type="password" name="password" id="login_pswd" placeholder="Password">
+            </div>
+            <div *ngIf="this.withdrawForm.get('pswd1')?.errors&&this.withdrawForm.get('pswd1')?.touched" style="color: red;">Invalid Password</div>
+    
+            <button class="btn btn-primary mt-3" (click)="withdraw()" type="button">Withdraw</button>
+        </form>
+        <div class="text-center m-3">
+            <a href="#">Forgot Password?</a> or <a routerLink="">Login</a>
+        </div>
+    </div>
+    
+    
+    </div>
+    
+    <h4> <a class="a1" routerLink="/transaction"> Transaction Details</a></h4>
